@@ -16,3 +16,4 @@ if __name__ == "__main__":
         
         # Save the transformed data to PostgreSQL
         save_to_postgres(movies_df, "movies")
+

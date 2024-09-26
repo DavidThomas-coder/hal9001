@@ -22,3 +22,6 @@ def save_to_postgres(df, table_name):
         print(f"Error saving data to PostgreSQL: {e}")
 
 
+
+
+
