@@ -20,8 +20,3 @@ def get_movies_by_year(year):
         print(f"Error: {response.status_code}")
         return None
 
-# Example usage
-if __name__ == "__main__":
-    movies = get_movies_by_year(2023)
-    if movies:
-        print(movies['results'])
