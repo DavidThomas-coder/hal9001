@@ -5,4 +5,5 @@ matplotlib
 sqlalchemy
 psycopg2-binary
 flask
+plotly
 

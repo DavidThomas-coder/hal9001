@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movies Data</title>
+    <title>Movie Ratings Distribution</title>
     <!-- Include Materialize CSS from CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1 class="center-align">Movies Data for 2023</h1>
-        <!-- Apply Materialize CSS table class -->
+        <h1 class="center-align">Movie Ratings Distribution (2023)</h1>
+        <!-- Use Materialize card to frame the plot -->
         <div class="card-panel">
-            {{ table|safe }}
+            <img src="data:image/png;base64,{{ plot_url }}" class="responsive-img">
         </div>
     </div>
 
@@ -20,4 +20,3 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
-
