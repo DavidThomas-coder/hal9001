@@ -4,7 +4,7 @@ from scripts.data_analysis import analyze_movies, plot_movie_ratings
 from scripts.db_handler import save_to_postgres
 
 if __name__ == "__main__":
-    # Pull movies from 2023
+    # Fetch movies from 2023
     movies = get_movies_by_year(2023)
     
     if movies:
@@ -15,5 +15,5 @@ if __name__ == "__main__":
         analyze_movies(movies_df)
         plot_movie_ratings(movies_df)
         
-        # Save the transformed data to PostgreSQL
+        # Save the transformed data to PostgreSQL (local copy)
         save_to_postgres(movies_df, "movies_2023")
