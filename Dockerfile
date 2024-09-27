@@ -13,7 +13,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Set environment variables for Python
 ENV PYTHONUNBUFFERED=1
 
-# Command to run the Python script
-CMD ["python", "main.py"]
+# Expose the Flask port (default is 5000)
+EXPOSE 5000
+
+# Run the Flask app
+CMD ["flask", "run", "--host=0.0.0.0"]
+
 
 
