@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movies Data</title>
-    <!-- Include Materialize CSS from CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <h1 class="center-align">Movies Data for 2023</h1>
-        <!-- Apply Materialize CSS table class -->
-        <div class="card-panel">
             {{ table|safe }}
+        </div>
+
+        <!-- Display Plotly chart for movie ratings -->
+        <div class="card-panel">
+            <h3>Movie Ratings Distribution</h3>
+            <div id="plotly-div"></div>
         </div>
     </div>
 

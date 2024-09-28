@@ -18,8 +18,4 @@ def transform_movie_data(movies_data):
     
     return pd.DataFrame(movie_list)
 
-# Example usage
-if __name__ == "__main__":
-    # Assuming you have a movies dictionary from the API call
-    movies_df = transform_movie_data(movies)
-    print(movies_df.head())
+
