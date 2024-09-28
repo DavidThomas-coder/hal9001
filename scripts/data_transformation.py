@@ -8,7 +8,6 @@ def transform_movie_data(movies_data):
     
     for movie in movies_data['results']:
         movie_list.append({
-            'id': movie['id'],
             'title': movie['title'],
             'release_date': movie['release_date'],
             'popularity': movie['popularity'],
