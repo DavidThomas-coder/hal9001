@@ -24,5 +24,3 @@ def get_movies_from_2024():
     else:
         print(f"Error: {response.status_code}")
         return None
-
-

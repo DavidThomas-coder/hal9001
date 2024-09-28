@@ -17,10 +17,16 @@ def index():
         movies_df = transform_movie_data(movies)
         
         # Convert the DataFrame to HTML for rendering in a browser
-        movies_html = movies_df.to_html(classes='table table-striped')
+        movies_html = movies_df.to_html(classes='highlight responsive-table')
 
         # Create a Plotly figure for the movie ratings
-        fig = px.histogram(movies_df, x="vote_average", nbins=10, title="Distribution of Movie Ratings (2024)")
+        fig = px.histogram(
+            movies_df, 
+            x="vote_average", 
+            nbins=10, 
+            title="Distribution of Movie Ratings (2024)",
+            color_discrete_sequence=['#3949ab']  # Custom color to match the theme
+        )
         
         # Convert the Plotly figure to JSON for rendering
         graphJSON = fig.to_json()
@@ -32,5 +38,6 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
 
