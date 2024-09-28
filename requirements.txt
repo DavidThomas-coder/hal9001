@@ -6,4 +6,4 @@ sqlalchemy
 psycopg2-binary
 flask
 plotly
-
+bokeh

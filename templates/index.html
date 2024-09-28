@@ -4,66 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies and Ratings (2024)</title>
+
+    <!-- Include Tailwind CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Bokeh Library -->
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.min.js"></script>
     
-    <!-- Include Materialize CSS from CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-    
-    <!-- Include Plotly for chart -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    
-    <!-- Custom Styles for Improving Visual Appearance -->
+    <!-- Custom Styling -->
     <style>
         body {
             background-color: #f4f4f9;
         }
         h1 {
             font-weight: bold;
-            color: #3949ab;
+            color: #1f2937; /* Tailwind Gray 800 */
         }
         h3 {
-            color: #3949ab;
-        }
-        .card-panel {
-            padding: 20px;
-            margin: 20px 0;
-        }
-        .navbar {
-            background-color: #3949ab;
+            color: #1f2937;
         }
         footer {
             margin-top: 40px;
             padding: 20px 0;
-            background-color: #3949ab;
+            background-color: #1f2937;
             color: white;
             text-align: center;
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800">
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo center">2024 Movies & Ratings</a>
+    <nav class="bg-blue-600 p-4">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-bold text-center text-white">2024 Movies & Ratings</h1>
         </div>
     </nav>
 
-    <div class="container">
+    <!-- Main Content -->
+    <div class="container mx-auto mt-8">
         <!-- Movie Data Section -->
-        <div class="section">
-            <div class="card-panel white">
-                <h3 class="center-align">Movies Released in 2024</h3>
-                <div class="responsive-table">
-                    {{ table|safe }}
-                </div>
+        <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+            <h3 class="text-xl font-semibold mb-4 text-center">Movies Released in 2024</h3>
+            <div class="overflow-x-auto">
+                {{ table|safe }}
             </div>
         </div>
 
         <!-- Movie Ratings Chart Section -->
-        <div class="section">
-            <div class="card-panel white">
-                <h3 class="center-align">Movie Ratings Distribution</h3>
-                <div id="plotly-div"></div>
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <h3 class="text-xl font-semibold mb-4 text-center">Movie Ratings Distribution</h3>
+            <div id="bokeh-plot">
+                {{ bokeh_div|safe }} <!-- Embeds the Bokeh plot div -->
             </div>
+            {{ bokeh_script|safe }} <!-- Embeds the Bokeh script -->
         </div>
     </div>
 
@@ -72,14 +65,5 @@
         <p>&copy; 2024 Movie Data Visualization</p>
     </footer>
 
-    <!-- Include Materialize JS from CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <!-- Render the Plotly plot -->
-    <script>
-        var graphs = {{ graphJSON | safe }};
-        Plotly.react('plotly-div', graphs.data, graphs.layout);
-    </script>
 </body>
 </html>
-
