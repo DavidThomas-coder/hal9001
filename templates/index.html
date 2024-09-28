@@ -3,21 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awards-Worthy Movies</title>
+    <title>Movies and Ratings (2024)</title>
     <!-- Include Materialize CSS from CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1 class="center-align">Awards-Worthy Movies for Fall 2023</h1>
-        <!-- Display awards-worthy movies table -->
+        <h1 class="center-align">Movies and Ratings (2024)</h1>
+
+        <!-- Display movies data table -->
         <div class="card-panel">
+            <h3>Movies Released in 2024</h3>
             {{ table|safe }}
+        </div>
+
+        <!-- Display Plotly chart for movie ratings -->
+        <div class="card-panel">
+            <h3>Movie Ratings Distribution</h3>
+            <div id="plotly-div"></div>
         </div>
     </div>
 
     <!-- Include Materialize JS from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Render the Plotly plot -->
+    <script>
+        var graphs = {{ graphJSON | safe }};
+        Plotly.react('plotly-div', graphs.data, graphs.layout);
+    </script>
 </body>
 </html>
 
