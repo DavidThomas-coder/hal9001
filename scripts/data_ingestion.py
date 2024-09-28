@@ -1,14 +1,19 @@
 import requests
+from datetime import datetime
 from scripts.config import API_KEY, BASE_URL
 
-def get_movies_by_year(year):
+def get_movies_from_2024():
     """
-    Function to retrieve movies from the TMDb API by a specific year.
+    Retrieve movies released from January 1, 2024, up to the current date.
     """
     url = f"{BASE_URL}/discover/movie"
+    # Get today's date in YYYY-MM-DD format
+    today = datetime.today().strftime('%Y-%m-%d')
+    
     params = {
         "api_key": API_KEY,
-        "primary_release_year": year,
+        "primary_release_date.gte": "2024-01-01",
+        "primary_release_date.lte": today,  # Set the upper limit to today's date
         "sort_by": "popularity.desc",
     }
     
@@ -19,4 +24,5 @@ def get_movies_by_year(year):
     else:
         print(f"Error: {response.status_code}")
         return None
+
 
